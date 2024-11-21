@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Defense CTF?</title>
+    <link rel="icon" href="static/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Header -->
+
+    <header class="header fade-in">
+        <div class="container">
+            <img src="static/img/logo.png" alt="Fantom Logo" class="logo">
+            
+            <h1>Что такое Defense CTF?</h1>
+
+            <p><span>&laquo; Маленькое приключение AvoidAttack &raquo;</span></p>
+        </div>
+    </header>
+
+    <!-- Main Block -->
+
+    <main>
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#1</strong></p>
+            <h2>About Defense CTF</h2>
+            <p class="text">&emsp;&emsp;<strong class="strong-red">Defense CTF</strong> - один из форматов соревнований Capture The Flag (CTF), где команды выступают в роли защитников и обеспечивают безопасность своих ресурсов от атак со стороны ботов.</p>
+            <p class="text">&emsp;&emsp;В отличие от классического Attack-Defense, где команды одновременно защищаются и атакуют, в Defense CTF команды сосредоточены исключительно на защите собственной инфраструктуры, а их успех зависит от того, насколько эффективно реализуется защита сервисов</p>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#2</strong></p>
+            <h2>AvoidAttack</h2>
+            <p class="text">&emsp;&emsp;<strong class="strong-red">&laquo;AvoidAttack Checksystem&raquo;</strong> - платформа для проведения соревнований в формате <strong class="strong-blue">Defense CTF</strong>, разработанная o1d_bu7_go1d</p>
+            <p class="text">&emsp;&emsp;Основной задачей платформы AvoidAttack является отслеживание прогресса участников по защите сервисов в ходе игры. При этом, сама платформа производит все необходимые проверки в отношении сервисов команд, а также фиксирует результаты, полученные при проверках. Таким образом формируется как общая статистика команд, так и более детальная для каждой отдельной команды.
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#3</strong></p>
+            <h2>Vulnboxes</h2>
+            <p class="text">&emsp;&emsp;У каждой команды есть свой виртуальный сервер, который называется <strong class="strong-red">vulnbox</strong>, где располагаются <strong class="strong-blue">сервисы</strong>. Все команды на старте игры находятся в равных условиях, т.е. на каждом vulnbox расположены исходники сервисов, в которых заранее заложен ряд уязвимостей, одинаковый для всех команд без исключений. Vulnbox может быть на основе любой операционной системы, в зависимости от выбора организаторов, но наиболее часто используется либо <strong class="strong-red">Ubuntu</strong>, либо <strong class="strong-red">Debian</strong>.
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#4</strong></p>
+            <h2>Services</h2>
+            <p class="text">&emsp;&emsp;В свою очередь, каждый <strong class="strong-blue">сервис</strong> - это определенное приложение, выполняющее определенные функции и работающее по сети. Сервисы могут быть как <strong class="strong-red">бинарными</strong>, так и на <strong class="strong-red">web-основе</strong>.</p>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#5</strong></p>
+            <h2>Docker</h2>
+            <p class="text">&emsp;&emsp;Зачастую, оперирование приложениями происходит в рамках <strong class="strong-blue">Docker</strong>, сделано это для удобства развертывания и устранения различных проблем, например, с зависимостями или совместимостью. Поэтому в текущих реалиях Docker - незаменимая технология. Перед тем, как играть в Attack-Defense или же в Defense CTF, необходимо изучить основы работы с Docker и Docker Compose.</p>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#6</strong></p>
+            <h2>Game architecture</h2>
+            <p class="text">&emsp;&emsp;В наиболее упрощенном варианте игровая архитектура выглядит следующим образом:</p>
+            <div class="container fade-in">
+                <img src="static/img/arc.png" alt="Fantom Image" class="image">
+            </div>
+            <p class="text">&emsp;&emsp;Игроки получают от организаторов VPN-конфиг для доступа к своему vulnbox по SSH, а также к клиентской части игровой платформу, где игроки могут отслеживать свой прогресс (Scoreboard).</p>
+            <p class="text">&emsp;&emsp;Общий статистика по всем командам выглядит следующим образом:</p>
+            <div class="container fade-in">
+                <img src="static/img/board-1.png" alt="Fantom Image" class="image">
+            </div>
+            <p class="text">&emsp;&emsp;А так выглядит детальная статистика одной из команд:</p>
+            <div class="container fade-in">
+                <img src="static/img/board-2.png" alt="Fantom Image" class="image">
+            </div>
+            <p class="text">&emsp;&emsp;Далее поговорим об условных обозначениях, которые показаны на скриншоте выше.</p>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#7</strong></p>
+            <h2>Checkers</h2>
+            <p class="text">&emsp;&emsp;<strong class="strong-blue">Checker</strong> - скрипт, который проверяет корректность работы целевого сервиса. В рамках платформы AvoidAttack один скрипт проверять часть функционала того или иного сервиса. Таких скриптов может быть несколько для одного сервиса, количество зависит от общего объема функциональных блоков сервиса.</p>
+            <p class="text">&emsp;&emsp;Если Checker - скрипт, от которого не требуется защита со стороны участников, то со Sploit ситуация ровно противоположная.</p>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#8</strong></p>
+            <h2>Sploits</h2>
+            <p class="text">&emsp;&emsp;<strong class="strong-red">Sploit</strong> - скрипт, используемый для атаки на уязвимый сервис с целью демонстрации уязвимости и получения несанкционированного доступа к целевому ресурсу. В некоторых отдельных случаях Sploit или Checker может называться <strong class="strong-red">Bot</strong>.</p>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#9</strong></p>
+            <h2>Platform Signs</h2>
+            <p class="text">&emsp;&emsp;Разберемся более детально, что подразумевают под собой представленные на одном из скриншотов статусы:</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-box fade-in">
+                <h3>&#128512; <strong class="strong-lime">Success Checker</strong></h3>
+                <p>Cитуация, когда проверяющий скрипт подтверждает правильную работу сервиса, т.е. тесты или запросы выполняются успешно и возвращают ожидаемые результаты.</p>
+            </div>
+            <div class="feature-box fade-in">
+                <h3>&#128532; <strong class="strong-red">Failure Checker</strong></h3>
+                <p>Cитуация, когда проверяющий скрипт обнаруживает ошибку в работе сервиса, т.е. тесты или запросы возвращают неверные результаты или не выполняются вовсе.</p>
+            </div>
+            <div class="feature-box fade-in">
+                <h3>&#128128; <strong class="strong-red">Down/Dead</strong></h3>
+                <p>Cитуация, когда сервис конкретной команды не отвечает на <strong class="strong-red">все</strong> запросы типа Checker. В этом случае Sploits не отрабатывают, но за это предусмотрен отдельный штраф в виде уменьшения очков.</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-box fade-in">
+                <h3>&#128520; <strong class="strong-red">Success Sploit</strong></h3>
+                <p>Cитуация, когда проверяющий скрипт успешно эксплуатирует уязвимость в целевом сервисе</p>
+            </div>
+            <div class="feature-box fade-in">
+                <h3>&#128526; <strong class="strong-lime">Failure Sploit</strong></h3>
+                <p>Cитуация, когда проверяющиему скрипту не удается проэксплуатировать уязвимость на целевом сервисе, что свидетельствует об исправлении уязвимости</p>
+            </div>
+            <div class="feature-box fade-in">
+                <h3>&#128165; <strong class="strong-lime">Script Error</strong> &#128164;</h3>
+                <p>Cитуации, когда проверяющие скрипты отрабатывают с внутренней ошибкой, независящей от игрока.</p>
+            </div>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#10</strong></p>
+            <h2>Platform Signs</h2>
+            <p class="text">&emsp;&emsp;Соответственно, для каждого раунда отображаются <strong class="strong-lime">количественные значения</strong> тех или иных проверок, а также итог по баллам за раунд для каждого сервиса. <strong class="strong-blue">Каждое количественное значение имеет под собой значение в виде очков, указанное в шапке таблицы над условными обозначениями</strong>.</p>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#11</strong></p>
+            <h2>Example</h2>
+            <p class="text">&emsp;&emsp;Если обратить внимание на скриншот выше с результатами отдельной команды, то можно заметить, что для сервиса <strong class="strong-lime"> atom_power_station</strong> в <strong class="strong-lime">7</strong> раунде прошли <strong class="strong-lime">3 чекера</strong> с состоянием <strong class="strong-red">Fail</strong>. Для каждого чекера с состоянием <strong class="strong-red">Fail</strong> количество очков составляет <strong class="strong-lime">-5</strong>. Тогда за <strong class="strong-lime">3 чекера</strong> получится <strong class="strong-lime">-15 очков</strong>. Также указано, что сервис находится в состоянии <strong class="strong-red">Down</strong>. За это состояние получаем <strong class="strong-red">-60 очков</strong>. Итог: <strong class="strong-red">-15 + (-60) = -75 очков</strong> за 7 раунд для сервиса atom_power_station у команды.</p>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#12</strong></p>
+            <h2>Monitoring</h2>
+            <p class="text">&emsp;&emsp;Возникает закономерый вопрос: каким образом команде отслеживать атаки на сервисы? Правильно - настроить средство мониторинга на своем vulnbox. На GitHub есть множество проектов с системами мониторинга, нацеленных на игру в формате Attack-Defense, но они могут быть полезными и при Defense CTF</p>
+            <p class="text">&emsp;&emsp;<strong class="strong-red">*</strong>Стоит отметить, что представленные ниже системы реагируют на флаги, а не только отслеживают трафик, но AvoidAttack не имеет под собой необходимости работать с флагами:</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-box fade-in">
+                <h3><strong class="strong-blue"><a href="https://github.com/SimoneErrigo/packmate">Packmate</a></strong></h3>
+            </div>
+            <div class="feature-box fade-in">
+                <h3><strong class="strong-blue"><a href="https://github.com/OpenAttackDefenseTools/tulip">Tulip</a></strong></h3>
+            </div>
+            <div class="feature-box fade-in">
+                <h3><strong class="strong-blue"><a href="https://arkime.com/index#home">Arkime</a></strong></h3>
+            </div>
+        </section>
+        
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#13</strong></p>
+            <h2>References</h2>
+            <p class="text">&emsp;&emsp; Attack-Defense для новичков - <a href="https://cbsctf.ru/ad">материал</a> знаменитой команды <strong class="strong-lime">C4T_BuT_S4D</strong>. Настоятельно рекомендуем ознакомиться!</p>
+        </section>
+
+        <section class="intro fade-in">
+            <p><strong class="strong-orange">#14</strong></p>
+            <h2>Socials</h2>
+        </section>
+
+        <section class="features">
+            <div class="feature-box fade-in">
+                <h3><a href="https://t.me/redshift_ctf"><i class='fab fa-telegram' style='color: blue'></i> Telegram</a></h3>
+            </div>
+            <div class="feature-box fade-in">
+                <h3><a href="https://github.com/o1d-bu7-go1d-CTF"><i class='fab fa-github' style='color: blue'></i> GitHub</a></h3>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer fade-in">
+        <p>The Moon, the Sea of Tranquility<br>The &laquo; Lullaby &raquo; edition 2120 system year</p>
+        <div class="made-with">
+            <p>Made with &#128151; by o1d_bu7_go1d</p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="static/js/elements_appearance.js"></script>
+</body>
+</html>
