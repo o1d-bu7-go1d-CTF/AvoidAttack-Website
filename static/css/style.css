@@ -46,6 +46,30 @@ body {
     font-size: 1.2em;
 }
 
+.strong-unknown {
+    color: #ffffff;
+}
+
+.strong-ok {
+    color: #7dfc74;
+}
+
+.strong-corrupt {
+    color: #5191ff;
+}
+
+.strong-mumble {
+    color: #ff9115;
+}
+
+.strong-down {
+    color: #ff5a5b;
+}
+
+.strong-checker-error {
+    color: #ffff02;
+}
+
 /* ====== HEADER STYLES ====== */
 
 .container {
